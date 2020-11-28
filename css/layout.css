@@ -1,0 +1,249 @@
+/*--------------------------------------------=Main Grid--------------------------------------------*/
+.container-main {
+	display: grid;
+	grid-template: repeat(6, auto) / 1fr;
+}
+/*--------------------------------------------=Header start--------------------------------------------*/
+.header .container {
+	display: grid;
+	grid-template: auto / auto 70%;
+}
+.header .container .logo {
+	display: flex;
+	align-items: center;
+}
+.header .container .navigation {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.header .container .menu-icon-wrap {
+	display: flex;
+	align-items: center;
+}
+.mobile-menu .navigation .links {
+	display: grid;
+	grid-template: repeat(6, 1fr) / 1fr;
+}
+.mobile-menu .navigation .links .link a {}
+/*--------------------------------------------=Banner start--------------------------------------------*/
+.banner .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.banner .container .services-summary {
+	display: grid;
+	grid-template: auto / repeat(4, 1fr);
+}
+.banner .container .services-summary .service {
+	display: grid;
+	grid-template: auto auto / auto;
+	grid-template-areas:
+						'icon'
+						'service';
+	grid-row-gap: 1rem;
+}
+.banner .container .services-summary .service .icon {
+	grid-area: icon;
+	justify-self: center;
+}
+.banner .container .services-summary .service p {
+	grid-area: service;
+	justify-self: center;
+}
+/*--------------------------------------------=Services start--------------------------------------------*/
+.services .container .services-description {
+	display: grid;
+	grid-template: 1fr 2fr / 2fr 1fr;
+	grid-template-areas:
+						'brief cards'
+						'services cards';
+	grid-row-gap: 2rem;
+	grid-column-gap: 3rem;
+}
+.services .container .services-description .brief {
+	grid-area: brief;
+}
+.services .container .services-description .all-services {
+	grid-area: services;
+	display: grid;
+	grid-template: repeat(3, 1fr) / 1fr 1fr;
+	grid-gap: 2rem;
+}
+.services .container .services-description .all-services .service {
+	display: grid;
+	grid-template: 1fr / auto auto;
+	grid-template-areas:
+						'icon details';
+	grid-gap: 1rem;
+}
+.services .container .services-description .all-services .service .icon {
+	grid-area: icon;
+}
+.services .container .services-description .all-services .service .details {
+	grid-area: details;
+}
+.services .container .services-description .flip-cards {
+	grid-area: cards;
+	display: grid;
+	grid-template: 1fr 1fr / 1fr;
+	grid-gap: 3rem;
+}
+.services .container .services-description .flip-cards .flip-card .front {
+	display: grid;
+}
+.services .container .services-description .flip-cards .flip-card .front .content {
+	align-self: center;
+	justify-self: center;
+}
+.services .container .services-description .flip-cards .flip-card .back {
+	display: grid;
+}
+.services .container .services-description .flip-cards .flip-card .back .content {
+	align-self: center;
+	justify-self: center;
+}
+/*--------------------------------------------=Pricing start--------------------------------------------*/
+.pricing .container .plans .tab-switcher {
+	display: grid;
+	grid-template: 1fr / repeat(4, 1fr);
+}
+.pricing .container .plans .categories .category .sub-tabs {
+	display: grid;
+	grid-template: 1fr / repeat(auto-fit, minmax(100px, 1fr));
+}
+.pricing .container .plans .categories .category .sub-tabs .tab {
+	justify-self: center;
+}
+.pricing .container .plans .categories .category .sub-category {
+	display: flex;
+	justify-content: center;
+}
+/*--------------------------------------------=Team start--------------------------------------------*/
+.team .container .members {
+	display: flex;
+	justify-content: space-between;
+}
+.team .container .members .member .contact {
+	display: flex;
+	justify-content: center;
+}
+.team .container .members .member .contact .container {
+	display: flex;
+	justify-content: space-between;
+}
+/*--------------------------------------------=Footer start--------------------------------------------*/
+.footer .container .contact-info-container .contact-info .social-media {
+	display: flex;
+	justify-content: space-between;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail {
+	display: flex;
+	justify-content: space-around;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .phone, .footer .container .contact-info-container .contact-info .call-and-mail .email {
+	display: grid;
+	grid-template: repeat(3, auto) / 1fr;
+	grid-template-areas:
+						'icon'
+						'tip'
+						'link';
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .phone .text, .footer .container .contact-info-container .contact-info .call-and-mail .email .text {
+	grid-area: tip;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .phone .link, .footer .container .contact-info-container .contact-info .call-and-mail .email .link {
+	grid-area: link;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .phone .icon, .footer .container .contact-info-container .contact-info .call-and-mail .email .icon {
+	grid-area: icon;
+}
+
+/*--------------------------------------------=screen width: <=1024px--------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=823px--------------------------------------------*/
+@media only screen and (max-width: 823px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=768px--------------------------------------------*/
+@media only screen and (max-width: 768px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=700px--------------------------------------------*/
+@media only screen and (max-width: 700px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=480px--------------------------------------------*/
+@media only screen and (max-width: 480px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=376px--------------------------------------------*/
+@media only screen and (max-width: 376px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=325px--------------------------------------------*/
+@media only screen and (max-width: 325px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=281px--------------------------------------------*/
+@media only screen and (max-width: 281px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}

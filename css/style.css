@@ -1,0 +1,997 @@
+/*--------------------------------------------=External files--------------------------------------------*/
+@import url('./normalise.css');
+@import url('./layout.css');
+@import url('./font-awesome/all.min.css');
+@import url('./font-awesome/v4-shims.min.css');
+
+/*--------------------------------------------=Variables--------------------------------------------*/
+:root {
+	--white: #FFFFFF;
+	--black: #000000;
+	--grey: #777777;
+	--grey-light: #8B8D94;
+	--grey-lighter: #ADB0B6;
+	--grey-darker: #23262D;
+	--grey-alt: #191919;
+	--link: #777777;
+	--link-hover: #FFFFFF;
+	--link-active: #ADB0B6;
+	--blue: #22A7F0;
+	--blue-active: #0A608F;
+	--icon: 40px;
+	--icon-large: 48px;
+	--not-bold: 400;
+	--bold: 500;
+	--navbar-top: 80px;
+	--navbar: 60px;
+	--section-width: 65%;
+	--section-width-wider: 80%;
+	--section-width-widest: 85%;
+	--section-pad: 75px;
+	--section-pad-bottom: 150px;
+	--price: #22A7F0;
+	--twitter: #00ACEE;
+	--twitter-dark: #0080B3;
+	--facebook: #476BB8;
+	--facebook-dark: #324B81;
+	--instagram: #C1477C;
+	--instagram-dark: #862D53;
+	--whatsapp: #30D44E;
+	--whatsapp-dark: #1E9434;
+	--phone: #009900;
+	--phone-dark: #006600;
+	--envelope: #E6BB5B;
+	--envelope-dark: #C8921E;
+	--include: #00C292;
+	--exclude: #DD4B39;
+	--check: aquamarine;
+	--checkb: #FFC761;
+}
+/*--------------------------------------------=Presets--------------------------------------------*/
+body {
+	font-family: montserrat, sans-serif;
+	color: var(--white);
+}
+.container-main, .header .container {
+	position: relative;
+}
+.container-main {
+/*	background: linear-gradient(rgba(255, 199, 97, 0.5), rgba(26, 188, 156, 0.25));*/
+	background-color: var(--black);
+}
+.post-navbar {
+	margin-top: var(--navbar-top);
+}
+h1, h2, h3, h4, h5, h6, .icon {
+	width: fit-content;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	margin-bottom: 10px;
+}
+.body {
+	line-height: 1.75;
+}
+.underline {
+	background-color: var(--white);
+	height: 2px;
+	transition: width 0.3s ease-in-out;
+}
+a, .navigation span, .links span {
+	color: var(--link);
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+a:hover, .social-media a i:hover {
+	color: var(--link-hover);
+	text-shadow: 0 0 3px var(--white);
+}
+a:active {
+	color: var(--link-active);
+	text-shadow: none;
+}
+a+.underline {
+	width: 0;
+}
+a:hover+.underline {
+	width: 100%;
+}
+.current-page a {
+	color: var(--link-hover) !important;
+}
+.current-page a:hover {
+	text-shadow: none;
+}
+.current-page>.underline {
+	width: 100%;
+}
+.menu-icon {
+	color: var(--link);
+}
+button {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--white);
+	padding: 15px 40px;
+	background-color: var(--blue);
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+button:hover {
+	color: var(--blue);
+	background-color: var(--white);
+}
+button:active {
+	color: var(--white);
+	background-color: var(--blue-active);
+}
+.disabled-button, .disabled-button:hover {
+	color: var(--white);
+	background-color: var(--blue);
+	opacity: 0.25;
+}
+form .error {
+	font-size: 11px;
+	width: fit-content;
+	padding-top: 3px;
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+form textarea+.error {
+	padding-top: 0;
+}
+form button {
+	width: 100%;
+}
+input, textarea {
+	background-color: transparent;
+	outline: none;
+	transition: none;
+}
+input::placeholder, textarea::placeholder {
+	color: var(--white);
+	font-weight: 300;
+}
+input {
+	padding: 2px 0 0px 2px;
+	border: none;
+}
+.date {
+	display: none;
+}
+input.date-field {
+	cursor: default;
+}
+input+.underline {
+	width: 0;
+	background-color: var(--blue);
+	height: 2.5px;
+}
+input.date-field+.underline {
+	width: 100%;
+}
+input:focus {
+	padding-bottom: 1px;
+}
+input:focus+.underline {
+	width: 100%;
+}
+textarea {
+	resize: none;
+	padding: 3px 0 3px 3px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	transition: border-color 0.3s ease-in-out;
+}
+textarea:focus {
+	border-width: 3px;
+	border-color: var(--blue);
+	padding: 1px;
+}
+label {
+	color: var(--blue);
+	display: inline-block !important;
+}
+.error {
+	color: var(--exclude) !important;
+}
+h2.title {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 70px;
+	font-weight: var(--not-bold);
+}
+.title-wrap {
+	cursor: default;
+}
+h2.title+.subtitle {
+	color: var(--grey-lighter);
+	font-size: 28px;
+}
+h2.title, h2.title+.subtitle {
+	text-align: center;
+}
+h2.title+.subtitle {
+	margin-bottom: 75px;
+}
+.heading-wrap {
+	margin-bottom: 25px;
+}
+.heading-wrap>.heading {
+	font-size: 32px;
+	font-weight: var(--bold);
+}
+.heading-wrap>.subheading {
+	font-size: 22px;
+	font-weight: var(--not-bold);
+	color: var(--grey-lighter);
+}
+.tab {
+	width: fit-content;
+}
+.tab p {
+	margin: 0;
+}
+.tab p+.underline {
+	width: 0;
+}
+.tab:hover p+.underline, .active-tab p+.underline {
+	width: 100%;
+}
+.twitter:hover {
+	color: var(--white) !important;
+	background-color: var(--twitter) !important;
+}
+.twitter:active {
+	color: var(--white) !important;
+	background-color: var(--twitter-dark) !important;
+}
+.facebook:hover {
+	color: var(--white) !important;
+	background-color: var(--facebook) !important;
+}
+.facebook:active {
+	color: var(--white) !important;
+	background-color: var(--facebook-dark) !important;
+}
+.instagram:hover {
+	color: var(--white) !important;
+	background-color: var(--instagram) !important;
+}
+.instagram:active {
+	color: var(--white) !important;
+	background-color: var(--instagram-dark) !important;
+}
+.whatsapp:hover {
+	color: var(--white) !important;
+	background-color: var(--whatsapp) !important;
+}
+.whatsapp:active {
+	color: var(--white) !important;
+	background-color: var(--whatsapp-dark) !important;
+}
+/*--------------------------------------------=Header start--------------------------------------------*/
+.header {
+	position: fixed;
+	z-index: 990;
+	width: 100%;
+	height: var(--navbar-top);
+	background-color: var(--black);
+}
+.header h1 {
+	margin: 0;
+}
+.header .container {
+	width: 95%;
+	height: 100%;
+	margin: auto;
+}
+.header .container .logo, .header .container .navigation, .header .container .menu-icon-wrap {
+	height: 100%;
+	background: transparent !important;
+}
+.header .container .logo {
+	width: fit-content;
+}
+.header .container .logo h1 {
+	height: 60px;
+	width: 60px;
+/*	height: 45px;
+	width: 45px;*/ /*On scroll*/
+	text-indent: -9999px;
+	background-image: url('../assets/images/icons/lightbulb-icon.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.header .container .logo h1:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50px;
+	background-image: radial-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/icons/lightbulb-icon.svg');
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+.header .container .logo h1:hover:before {
+	opacity: 1;
+}
+.header .container .navigation {
+	margin-left: auto;
+}
+.header .container .navigation a {
+	font-size: 20px;
+}
+.header .container .navigation .link:nth-child(n+2) {
+	margin-left: 7%;
+}
+.header .container .menu-icon-wrap {
+	position: absolute;
+	right: 0;
+	height: 100%;
+	pointer-events: none;
+	opacity: 0;
+}
+.header .container .menu-icon-wrap .open-menu {
+	font-size: 24px;
+	opacity: 0;
+	pointer-events: none;
+}
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	left: 110%;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	direction: rtl;
+	opacity: 0;
+}
+.mobile-menu .menu-icon, .mobile-menu .navigation {
+	background-color: var(--white);
+	position: fixed;
+	width: 85%;
+	pointer-events: auto;
+	transform: translateX();
+}
+.mobile-menu .menu-icon, .mobile-menu .navigation .links .link a {
+	font-size: 24px
+}
+.mobile-menu .menu-icon {
+	margin-bottom: -5px;
+	background-color: var(--grey-alt);
+	z-index: 2;
+}
+.mobile-menu .menu-icon .close-menu {
+	color: var(--grey-alt);
+	text-align: center;
+	width: 32px;
+	margin: 10px 10px 0 0;
+	background-color: var(--grey-lighter);
+	padding: 5px;
+}
+.mobile-menu .navigation {
+	z-index: 1;
+	padding-top: 50px;
+	height: 100%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/images/icons/lightbulb-icon.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.mobile-menu .navigation .links {
+	margin-left: 2rem;
+	direction: ltr;
+}
+.mobile-menu .navigation .links .link {
+	width: fit-content;
+	padding: 1rem 0;
+}
+.mobile-menu .navigation .links a {
+	color: var(--link);
+	width: fit-content;
+}
+.mobile-menu .navigation .links a:hover {
+	color: var(--link-hover);
+}
+.mobile-menu .navigation .links a:active {
+	color: var(--link-active);
+	text-shadow: none;
+}
+/*--------------------------------------------=Banner start--------------------------------------------*/
+.banner {
+	background-color: var(--black);
+	color: var(--white);
+}
+.banner .container {
+	height: 575px;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/images/icons/lightbulb-icon.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	width: var(--section-width-widest);
+	margin: auto;
+	padding: var(--section-pad) 0;
+	text-align: center;
+	cursor: default;
+}
+.banner .container .banner-header {
+	width: fit-content;
+	margin: 0 auto 50px auto;
+}
+.banner .container .banner-header .company-name {
+	font-size: 128px;
+}
+.banner .container .banner-header .tagline {
+	font-size: 48px;
+	font-style: italic;
+	margin-bottom: 100px;
+	width: fit-content;
+}
+.banner .container .banner-header .tagline:before {
+	content: " ...";
+	letter-spacing: 3px;
+}
+.banner .container .services-summary {
+	width: 85%;
+	margin: 0 auto;
+}
+.banner .container .services-summary .service .icon {
+	font-size: var(--icon-large);
+}
+.banner .container .services-summary .service p {
+	font-size: 18px;
+}
+/*--------------------------------------------=About start--------------------------------------------*/
+.about {
+	background-color: var(--white);
+	color: var(--black);
+}
+.about .container {
+	width: var(--section-width);
+	margin: auto;
+	padding: var(--section-pad) 0;
+}
+.about .container .title-wrap {
+	text-align: center;
+}
+.about .container .company-description .body {
+	color: var(--grey-light);
+}
+/*--------------------------------------------=Services start--------------------------------------------*/
+.services .container {
+	width: var(--section-width-wider);
+	margin: auto;
+	padding: var(--section-pad) 0 var(--section-pad-bottom) 0;
+}
+.services .container .services-description .all-services .service .icon {
+	font-size: var(--icon);
+}
+.services .container .services-description .all-services .service .details .title {
+	line-height: 1.5;
+}
+.services .container .services-description .all-services .service .details .description {
+	color: var(--grey-light);
+}
+.services .container .services-description .flip-cards .flip-card {
+	position: relative;
+	text-align: center;
+	border-radius: 25px;
+	cursor: default;
+}
+.services .container .services-description .flip-cards .flip-card .front {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background-color: var(--white);
+	backface-visibility: hidden;
+	color: var(--black);
+	border-radius: 25px;
+	transform-style: preserve-3d;
+	transition: transform 0.5s linear;
+}
+.services .container .services-description .flip-cards .flip-card:hover .front {
+	transform: perspective(1000px) rotateY(-180deg);
+}
+.services .container .services-description .flip-cards .flip-card:hover .back {
+	transform: rotateX(0deg);
+}
+.services .container .services-description .flip-cards .flip-card .front .content, .services .container .services-description .flip-cards .flip-card .back .content {
+	width: 90%;
+}
+.services .container .services-description .flip-cards .flip-card .front .content .icon {
+	font-size: var(--icon-large);
+}
+.services .container .services-description .flip-cards .flip-card .front .content h3 {
+	margin: 20px auto;
+	font-size: 28px;
+	width: 70%;
+}
+.services .container .services-description .flip-cards .flip-card .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: var(--grey-darker);
+	backface-visibility: hidden;
+	color: var(--white);
+	transform: perspective(1000px) rotateY(180deg);
+	transform-style: preserve-3d;
+	border-radius: 25px;
+	transition: transform 0.5s linear;
+}
+/*--------------------------------------------=Pricing start--------------------------------------------*/
+.pricing {
+	background-color: var(--white);
+	color: var(--grey-light);
+}
+.pricing .container {
+	width: var(--section-width);
+	margin: auto;
+	padding: var(--section-pad) 0 var(--section-pad-bottom) 0;
+}
+.pricing .container .title-wrap .title {
+	color: var(--black);
+}
+.pricing .container .plans .tab-switcher {
+	color: var(--white);
+	font-size: 24px;
+	text-align: center;
+	background-color: var(--grey);
+	border-radius: 25px;
+	cursor: default;
+}
+.pricing .container .plans .tab-switcher .main-tab {
+	width: 100%;
+	border-radius: 25px;
+	padding: 10px 0;
+	transition: background-color 0.3s ease-in-out;
+}
+.pricing .container .plans .tab-switcher .main-tab:hover {
+	background-color: var(--grey-light);
+}
+.pricing .container .plans .tab-switcher .active-tab {
+	background-color: var(--grey-darker);
+}
+.pricing .container .plans .tab-switcher .active-tab:hover {
+	background-color: var(--grey-darker);
+}
+.pricing .container .plans .tab-switcher .main-tab p {
+	margin: 0;
+}
+.pricing .container .plans .categories .category {
+	padding-bottom: 25px;
+}
+.pricing .container .plans .categories .category, .pricing .container .plans .categories .category .sub-category {
+	opacity: 0;
+	height: 0;
+	padding: 0;
+}
+.pricing .container .plans .categories .category-active {
+	opacity: 1 !important;
+	height: 100% !important;
+}
+.pricing .container .plans .categories .category-active .sub-category-active {
+	opacity: 1 !important;
+	height: 100% !important;
+}
+.pricing .container .plans .categories .category .sub-tabs {
+	font-size: 20px;
+	font-weight: 500;
+	padding: 20px 0 0 0;
+	margin-bottom: 50px;
+	cursor: default;
+}
+.pricing .container .plans .categories .category .sub-tabs .active-tab {
+	color: var(--grey-darker);
+}
+.pricing .container .plans .categories .category .sub-tabs .tab .underline {
+	background-color: var(--grey-light);
+	height: 2.5px;
+}
+.pricing .container .plans .categories .category .sub-tabs .active-tab .underline {
+	background-color: var(--grey-darker);
+}
+.pricing .container .plans .categories .category .sub-category .plan {
+	width: 300px;
+	background-color: var(--grey-darker);
+	color: var(--white);
+	text-align: center;
+	border-radius: 15px;
+	margin: 0 2rem;
+	cursor: default;
+	position: relative;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease-in-out;
+}
+.pricing .container .plans .categories .category .sub-category .plan:hover {
+	box-shadow: 0 0 25px var(--black);
+}
+.pricing .container .plans .categories .category .sub-category .plan .ribbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.pricing .container .plans .categories .category .sub-category .plan .heading-wrap {
+	background: linear-gradient(var(--black), var(--black), var(--grey-darker));
+	padding: 10px 0;
+}
+.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .heading {
+	width: fit-content;
+	margin: 30px auto 20px auto;
+}
+.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee {
+	width: fit-content;
+	margin: auto;
+	background-color: var(--white);
+	color: var(--black);
+	padding: 50px 25px;
+	border-radius: 100px;
+}
+.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee p {
+	color: var(--grey);
+	font-size: 18px;
+}
+.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee .amount {
+	color: var(--price);
+	font-size: 28px;
+	font-weight: 500;
+}
+.pricing .container .plans .categories .category .sub-category .plan .plan-description {
+	padding: 0 25px;
+}
+.pricing .container .plans .categories .category .sub-category .plan .deliverables ul {
+	width: fit-content;
+	margin: auto;
+	text-align: left;
+	list-style: none;
+	padding: 0;
+	opacity: 0;
+	height: 0;
+	pointer-events: none;
+}
+.pricing .container .plans .categories .category .sub-category .plan .details {
+	color: var(--grey-light);
+	font-size: 14px;
+	width: fit-content;
+	margin: auto;
+	transition: color 0.2s ease-in-out;
+}
+.pricing .container .plans .categories .category .sub-category .plan .details:hover {
+	color: var(--white);
+}
+.pricing .container .plans .categories .category .sub-category .plan .request-button-wrap {
+	padding: 25px 0 50px 0;
+}
+/*--------------------------------------------=Team start--------------------------------------------*/
+.team .container {
+	width: var(--section-width-wider);
+	margin: auto;
+	padding: var(--section-pad) 0 var(--section-pad-bottom) 0;
+}
+.team .container .members {
+	text-align: center;
+}
+.team .container .members .member {
+	position: relative;
+	cursor: default;
+}
+.team .container .members .member .photo {
+	width: 200px;
+	height: 300px;
+	margin: auto;
+	border-radius: 15px;
+	overflow: hidden;
+}
+.team .container .members .member .photo img {
+	filter: blur(3px);
+	transition: filter 0.2s ease-in-out;
+}
+.team .container .members .member:hover .photo img {
+	filter: blur(0);
+}
+.team .container .members .member .name {
+	font-size: 28px;
+	font-weight: 500;
+	margin: 10px auto 3px auto;
+}
+.team .container .members .member .title {
+	color: var(--grey-light);
+	margin-bottom: 0;
+}
+.team .container .members .member .contact {
+	pointer-events: none;
+}
+.team .container .members .member .contact .container {
+	position: absolute;
+	top: 30%;
+	width: 50%;
+	opacity: 0;
+	transition: top 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.team .container .members .member:hover .contact .container {
+	top: 45%;
+	width: 80%;
+	opacity: 1;
+}
+.team .container .members .member .contact .container .icon {
+	color: var(--grey-darker);
+	background-color: var(--white);
+	width: 16px;
+	padding: 10px;
+	border-radius: 25px;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.team .container .members .member:hover .contact .container .icon {
+	pointer-events: auto;
+}
+/*--------------------------------------------=Footer start--------------------------------------------*/
+.footer {
+	background-color: var(--grey-darker);
+	position: relative;
+}
+.footer .container {
+	width: 45%;
+	margin: auto;
+	padding: var(--section-pad) 0 var(--section-pad-bottom) 0;
+}
+.footer .container .contact-form-container .contact-form .field {
+	margin-bottom: 20px;
+	position: relative;
+}
+.footer .container .contact-form-container .contact-form .field:nth-child(6) {
+	margin-bottom: 30px;
+}
+.footer .container .contact-form-container .contact-form .field input, .footer .container .contact-form-container .contact-form .field textarea {
+	color: var(--white);
+	width: 99.5%;
+}
+.footer .container .contact-form-container .contact-form .field label {
+	font-size: 11px;
+	transform: translateY(7px);
+	opacity: 0;
+}
+.footer .container .contact-form-container .contact-form .field textarea {
+	height: 150px;
+}
+.footer .container .contact-form-container .contact-form .date label {
+	opacity: 1;
+}
+.footer .container .or {
+	font-size: var(--icon-large);
+	text-align: center;
+	margin: 100px 0 75px 0;
+}
+.footer .container .contact-info-container .contact-info {
+	margin-top: 10px;
+}
+.footer .container .contact-info-container .contact-info a {
+	color: var(--white);
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+.footer .container .contact-info-container .contact-info a:hover {
+	color: var(--grey);
+	text-shadow: none;
+}
+.footer .container .contact-info-container .contact-info a:active {
+	color: var(--grey-lighter);
+}
+.footer .container .contact-info-container .contact-info .icon {
+	font-size: var(--icon);
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail {
+	text-align: center;
+	margin-bottom: 75px;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .text {
+	color: var(--grey-lighter);
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .link {
+	font-size: 20px;
+	margin-bottom: 25px;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .icon {
+	margin: auto;
+	margin-bottom: 20px;
+	color: var(--grey-light);
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .phone a:hover+.icon {
+	color: var(--phone);
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .phone {
+	width: fit-content;
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .email a:hover+.icon {
+	color: var(--envelope);
+}
+.footer .container .contact-info-container .contact-info .call-and-mail .email {
+	width: fit-content;
+}
+.footer .container .contact-info-container .contact-info .maps .map-1 {
+	margin-top: 2rem;
+	margin-bottom: 15px;
+}
+.footer .container .contact-info-container .contact-info .maps .map-1 .map {
+	width: 100%;
+	margin-bottom: 25px;
+}
+.footer .container .contact-info-container .contact-info .maps .map-1 .address {
+	font-weight: 300;
+	margin-bottom: 3px;
+	font-size: 20px;
+}
+.footer .container .contact-info-container .contact-info .maps .map-1 .address .location {
+	color: var(--grey-light);
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.footer .container .contact-info-container .contact-info .social-media {
+	width: 70%;
+	margin: auto;
+}
+.footer .container .contact-info-container .contact-info .social-media .icon {
+	color: var(--grey-darker);
+	font-size: 24px;
+	text-align: center;
+	width: 16px;
+	background-color: var(--white);
+	padding: 25px 30px;
+	border-radius: 100px;
+}
+.footer .container .contact-info-container .contact-info .social-media .icon:hover {}
+.footer .socket {
+	color: var(--grey-lighter);
+	width: 100%;
+	padding: 25px 0;
+	background-color: var(--black);
+	position: absolute;
+	bottom: 0;
+}
+.footer .socket .copyright {
+	width: fit-content;
+	margin: auto;
+	cursor: default;
+}
+.footer .socket .copyright p {
+	margin: 0;
+}
+.footer .socket .copyright .lightbulb-devs {
+	color: var(--grey-lighter);
+	font-weight: 500;
+	transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.footer .socket:hover .copyright .lightbulb-devs {
+	color: var(--white);
+	text-shadow: 0 0 10px var(--white);
+}
+.footer .scroll {
+	width: fit-content;
+	position: fixed;
+	bottom: 2%;
+	right: 1%;
+}
+.footer .scroll .scroll-top {
+	color: var(--white);
+	font-size: 24px;
+	background-color: rgba(100, 100, 100, 0.5);
+	padding: 20px;
+	transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.footer .scroll:hover .scroll-top {
+	background-color: rgba(100, 100, 100, 0.9);
+}
+.footer .scroll:active .scroll-top {
+	background-color: rgba(70, 70, 70, 0.5);
+}
+.footer .scroll .on {
+	opacity: 1;
+}
+.footer .scroll .off {
+	opacity: 1;
+}
+
+/*--------------------------------------------=screen width: <=1024px--------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=823px--------------------------------------------*/
+@media only screen and (max-width: 823px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=768px--------------------------------------------*/
+@media only screen and (max-width: 768px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=700px--------------------------------------------*/
+@media only screen and (max-width: 700px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=480px--------------------------------------------*/
+@media only screen and (max-width: 480px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=376px--------------------------------------------*/
+@media only screen and (max-width: 376px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=325px--------------------------------------------*/
+@media only screen and (max-width: 325px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
+
+/*--------------------------------------------=screen width: <=281px--------------------------------------------*/
+@media only screen and (max-width: 281px) {
+	/*--------------------------------------------=Header start--------------------------------------------*/
+	/*--------------------------------------------=Banner start--------------------------------------------*/
+	/*--------------------------------------------=About start--------------------------------------------*/
+	/*--------------------------------------------=Services start--------------------------------------------*/
+	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	/*--------------------------------------------=Team start--------------------------------------------*/
+	/*--------------------------------------------=Footer start--------------------------------------------*/
+}
