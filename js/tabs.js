@@ -1,0 +1,1 @@
+window.addEventListener('DOMContentLoaded', scrollAnimations); //Run srcipt after page loads
