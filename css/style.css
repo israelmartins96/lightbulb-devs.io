@@ -1,8 +1,6 @@
 /*--------------------------------------------=External files--------------------------------------------*/
 @import url('./normalise.css');
 @import url('./layout.css');
-@import url('./font-awesome/all.min.css');
-@import url('./font-awesome/v4-shims.min.css');
 
 /*--------------------------------------------=Variables--------------------------------------------*/
 :root {
