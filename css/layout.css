@@ -25,7 +25,6 @@
 	display: grid;
 	grid-template: repeat(6, 1fr) / 1fr;
 }
-.mobile-menu .navigation .links .link a {}
 /*--------------------------------------------=Banner start--------------------------------------------*/
 .banner .container {
 	display: flex;
@@ -102,7 +101,6 @@
 }
 .services .container .services-description .flip-cards .flip-card .back .content {
 	align-self: center;
-	justify-self: center;
 }
 /*--------------------------------------------=Pricing start--------------------------------------------*/
 .pricing .container .plans .tab-switcher {
@@ -166,19 +164,43 @@
 	/*--------------------------------------------=Banner start--------------------------------------------*/
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
+	.services .container .services-description {
+		display: grid;
+		grid-template: 0.5fr 3fr 1.5fr / 1fr;
+		grid-template-areas:
+							'brief'
+							'services'
+							'cards';
+		grid-row-gap: 4rem;
+	}
+	.services .container .services-description .flip-cards {
+		grid-template: 1fr / 1fr 1fr;
+	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	/*--------------------------------------------=Footer start--------------------------------------------*/
 }
 
-/*--------------------------------------------=screen width: <=823px--------------------------------------------*/
-@media only screen and (max-width: 823px) {
+/*--------------------------------------------=screen width: <=824px--------------------------------------------*/
+@media only screen and (max-width: 824px) {
 	/*--------------------------------------------=Header start--------------------------------------------*/
 	/*--------------------------------------------=Banner start--------------------------------------------*/
+	.banner .container .services-summary {
+		grid-template: 1fr 1fr / repeat(2, 1fr);
+		grid-row-gap: 4rem;
+	}
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
+	.services .container .services-description .all-services {
+		grid-template: repeat(6, 1fr) / 1fr;
+	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	/*--------------------------------------------=Team start--------------------------------------------*/
+	.team .container .members {
+		display: grid;
+		grid-template: repeat(4, 1fr) / 1fr;
+		grid-gap: 6rem;
+	}
 	/*--------------------------------------------=Footer start--------------------------------------------*/
 }
 
@@ -210,9 +232,28 @@
 	/*--------------------------------------------=Banner start--------------------------------------------*/
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
+	.services .container .services-description .flip-cards {
+		grid-template: 1fr 1fr / 1fr;
+	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	.pricing .container .plans .tab-switcher {
+		grid-template: 1fr 1fr / 1fr 1fr;
+	}
+	.pricing .container .plans .categories .category .sub-tabs .tab {
+		align-self: end;
+	}
+	.pricing .container .plans .categories .category .sub-category {
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+	}
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	/*--------------------------------------------=Footer start--------------------------------------------*/
+	.footer .container .contact-info-container .contact-info .call-and-mail {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
 }
 
 /*--------------------------------------------=screen width: <=376px--------------------------------------------*/

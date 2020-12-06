@@ -1,4 +1,4 @@
-const loader = document.querySelector('.loader-wrap'); //Loading screen //Other comments don't forget
+const loader = document.querySelector('.loader-wrap'); //Loading screen
 
 var scrollAnimations = ()=>{
 	//Key parameters
@@ -58,12 +58,12 @@ var scrollAnimations = ()=>{
 	const footer = {//... for Footer section
 		whole: document.querySelector('.footer'),
 		allContent: document.querySelector('.footer *'),
-		formFields: document.querySelectorAll('.footer .contact-form .field'),
+/*		formFields: document.querySelectorAll('.footer .contact-form .field'),
 		orContact: document.querySelector('.footer .or'),
 		call: document.querySelector('.footer .contact-info .phone'),
 		email: document.querySelector('.footer .contact-info .email'),
 		map: document.querySelector('.footer .maps .map'),
-		socialMedia: document.querySelectorAll('.footer .social-media .icon'),
+		socialMedia: document.querySelectorAll('.footer .social-media .icon'),*/
 		scrollToTop: document.querySelector('.footer .scroll .scroll-top')
 	};
 
@@ -73,7 +73,7 @@ var scrollAnimations = ()=>{
 
 	//Animations
 	var effects = {
-		//Header
+		//Header-related
 		header: {
 			whole: ()=>{
 				var scroll = (()=>{
@@ -154,7 +154,7 @@ var scrollAnimations = ()=>{
 					})();
 				})();
 			},
-			navigationLinks: ()=>{
+			navigationLinks: ()=>{//Page-navigation-related
 				var scrollToSection = (()=>{
 					//Banner section
 					header.navigationLinks[0].addEventListener('mouseup', ()=>{ //To scroll to the desired section when the link is hit
@@ -220,7 +220,7 @@ var scrollAnimations = ()=>{
 			},
 		},
 		footer: {
-			scrollToTop: ()=>{
+			scrollToTop: ()=>{//Page top arrow
 				var scroll = (()=>{
 					footer.scrollToTop.addEventListener('click', ()=>{ //To scroll to the top of the page when the arrow is hit
 						pageSections[0].scrollIntoView({
@@ -238,7 +238,7 @@ var scrollAnimations = ()=>{
 	};
 
 	var animations = {
-		header: (()=>{
+		header: (()=>{//Header animations
 			var topGapBanner = banner.whole.getBoundingClientRect().top;
 			if (topGapBanner >= 0) {
 				for (var i = header.navigationLinksWrap.length - 1; i >= 0; i--) {
@@ -253,7 +253,7 @@ var scrollAnimations = ()=>{
 					var displayLinkControl = ()=>{
 						displayLink(linkCount);
 						linkCount -= 1;
-						if (linkCount < 0) {
+						if (linkCount < 0 || window.innerWidth < 1024) {
 							var stopDisplayLinkInterval = ()=>{
 								clearInterval(displayLinkInterval);
 							};
@@ -265,7 +265,7 @@ var scrollAnimations = ()=>{
 				}, 1300);
 			}
 		})(),
-		banner: (()=>{
+		banner: (()=>{//Banner animations
 			var topGapBanner = banner.whole.getBoundingClientRect().top;
 			if (topGapBanner >= 0) {
 				fullPage.style.overflow = 'hidden';
@@ -300,7 +300,7 @@ var scrollAnimations = ()=>{
 				}, 1300);
 			}
 		})(),
-		about: (()=>{
+		about: (()=>{//About company section animations
 			var topGapAbout = about.whole.getBoundingClientRect().top; //The gap between the section and the top of the device's screen
 			if (topGapAbout > (0 + header.whole.offsetHeight)) {
 				about.title.style = 'opacity: 0; transform: translateX(-20px);';
@@ -330,7 +330,7 @@ var scrollAnimations = ()=>{
 				}, 1300);
 			}
 		})(),
-		services: (()=>{
+		services: (()=>{//Services section animations
 			var topGapServices = services.whole.getBoundingClientRect().top; //The gap between the section and the top of the device's screen
 			if (topGapServices > (0 + header.whole.offsetHeight)) {
 				services.title.style = 'opacity: 0; transform: translateX(20px);';
@@ -367,7 +367,7 @@ var scrollAnimations = ()=>{
 				}, 1300);
 			}
 		})(),
-		pricing: (()=>{
+		pricing: (()=>{//Prices section animations
 			var topGapPricing = pricing.whole.getBoundingClientRect().top; //The gap between the section and the top of the device's screen
 			if (topGapPricing > (0 + header.whole.offsetHeight)) {
 				pricing.title.style = 'opacity: 0; transform: translateX(-20px);';
@@ -382,7 +382,7 @@ var scrollAnimations = ()=>{
 					pricing.subTabs[i].style = 'opacity: 0; transform: translateY(-20px);';
 				}
 				for (var i = pricing.plans.length - 1; i >= 0; i--) {
-					pricing.plans[i].style = 'opacity: 0; transform: translateY(20px);';
+					pricing.plans[i].style = 'opacity: 0; transform: translateY(100px);';
 				}
 				setTimeout(()=>{
 					var displayContent = ()=>{
@@ -424,7 +424,7 @@ var scrollAnimations = ()=>{
 				}, 1300);
 			}
 		})(),
-		team: (()=>{
+		team: (()=>{//Team section animations
 			var topGapTeam = team.whole.getBoundingClientRect().top; //The gap between the section and the top of the device's screen
 			if (topGapTeam > (0 + header.whole.offsetHeight)) {
 				team.title.style = 'opacity: 0; transform: translateX(100px);';
@@ -463,7 +463,7 @@ var scrollAnimations = ()=>{
 				}, 1300);
 			}
 		})(),
-		footer: (()=>{
+		footer: (()=>{//Footer/Contact section animations
 			var topGapFooter = footer.whole.getBoundingClientRect().top; //The gap between the section and the top of the device's screen
 			if (topGapFooter > (0 + header.whole.offsetHeight)) {
 				footer.allContent.style = 'opacity: 0; transform: translateY(100px);';
@@ -492,7 +492,7 @@ var scrollAnimations = ()=>{
 
 window.addEventListener('DOMContentLoaded', scrollAnimations, false); //Run srcipt after page loads
 
-setTimeout(()=>{
+setTimeout(()=>{//Remove the loading page after the page loads
 	loader.style = 'opacity: 0; transition-property: opacity, display; transition-duration: 0.3s; transition-timing-function: ease-out;';
 	setTimeout(()=>{
 		loader.style = 'display: none;';

@@ -1,6 +1,8 @@
 /*--------------------------------------------=External files--------------------------------------------*/
 @import url('./normalise.css');
 @import url('./layout.css');
+@import url('./font-awesome/all.min.css');
+@import url('./font-awesome/v4-shims.min.css');
 
 /*--------------------------------------------=Variables--------------------------------------------*/
 :root {
@@ -54,8 +56,10 @@ body {
 	position: relative;
 }
 .container-main {
-/*	background: linear-gradient(rgba(255, 199, 97, 0.5), rgba(26, 188, 156, 0.25));*/
 	background-color: var(--black);
+}
+.page-section {
+	overflow: hidden;
 }
 .post-navbar {
 	margin-top: var(--navbar-top);
@@ -330,8 +334,6 @@ h2.title+.subtitle {
 .header .container .logo h1 {
 	height: 60px;
 	width: 60px;
-/*	height: 45px;
-	width: 45px;*/ /*On scroll*/
 	text-indent: -9999px;
 	background-image: url('../assets/images/icons/lightbulb-icon.svg');
 	background-repeat: no-repeat;
@@ -369,10 +371,6 @@ h2.title+.subtitle {
 	height: 100%;
 	pointer-events: none;
 	opacity: 0;
-}
-.header .container .menu-icon-wrap .open-menu {
-	opacity: 0;
-	pointer-events: none;
 }
 .mobile-menu {
 	position: fixed;
@@ -517,6 +515,9 @@ h2.title+.subtitle {
 	border-radius: 25px;
 	cursor: default;
 }
+.services .container .services-description .flip-cards .flip-card .front, .services .container .services-description .flip-cards .flip-card .back {
+	padding: 10px 0;
+}
 .services .container .services-description .flip-cards .flip-card .front {
 	position: absolute;
 	top: 0;
@@ -533,6 +534,7 @@ h2.title+.subtitle {
 }
 .services .container .services-description .flip-cards .flip-card .front .content, .services .container .services-description .flip-cards .flip-card .back .content {
 	width: 90%;
+	margin: auto;
 }
 .services .container .services-description .flip-cards .flip-card .front .content .icon {
 	font-size: var(--icon-large);
@@ -627,6 +629,7 @@ h2.title+.subtitle {
 	color: var(--grey-light) !important;
 	font-size: 20px;
 	font-weight: 500;
+	text-align: center;
 	padding: 20px 0 0 0;
 	margin-bottom: 50px;
 	cursor: default;
@@ -675,7 +678,6 @@ h2.title+.subtitle {
 	width: fit-content;
 	margin: auto;
 	background-color: var(--white);
-	color: var(--black);
 	padding: 50px 25px;
 	border-radius: 100px;
 }
@@ -742,6 +744,8 @@ h2.title+.subtitle {
 	overflow: hidden;
 }
 .team .container .members .member .photo img {
+	width: 100%;
+	height: 100%;
 	filter: blur(3px);
 	transition: filter 0.2s ease-in-out;
 }
@@ -752,6 +756,9 @@ h2.title+.subtitle {
 	font-size: 28px;
 	font-weight: 500;
 	margin: 10px auto 3px auto;
+}
+.team .container .members .member:hover .name {
+	text-shadow: 0 0 15px var(--white);
 }
 .team .container .members .member .title {
 	color: var(--grey-light);
@@ -901,7 +908,6 @@ h2.title+.subtitle {
 	padding: 25px 30px;
 	border-radius: 100px;
 }
-.footer .container .contact-info-container .contact-info .social-media .icon:hover {}
 .footer .socket {
 	color: var(--grey-lighter);
 	width: 100%;
@@ -932,6 +938,7 @@ h2.title+.subtitle {
 	position: fixed;
 	bottom: 2%;
 	right: 1%;
+	z-index: 995;
 }
 .footer .scroll .scroll-top {
 	color: var(--white);
@@ -955,23 +962,155 @@ h2.title+.subtitle {
 
 /*--------------------------------------------=screen width: <=1024px--------------------------------------------*/
 @media only screen and (max-width: 1024px) {
+	h2.title {
+		font-size: 40px;
+	}
+	h2.title+.subtitle {
+		font-size: 18px;
+	}
+	.heading-wrap>.heading {
+		font-size: 26px;
+	}
+	.heading-wrap>.subheading {
+		font-size: 18px;
+	}
 	/*--------------------------------------------=Header start--------------------------------------------*/
+	.header .container .navigation {
+		opacity: 0;
+		pointer-events: none;
+	}
+	.header .container .menu-icon-wrap {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	.mobile-menu {
+		opacity: 1;
+	}
 	/*--------------------------------------------=Banner start--------------------------------------------*/
+	.banner .container .banner-header .company-name {
+		font-size: 80px;
+	}
+	.banner .container .banner-header .tagline {
+		font-size: 28px;
+		margin: 0 auto 40px auto;
+	}
+	.banner .container .services-summary .service .icon {
+		font-size: var(--icon);
+	}
+	.banner .container .services-summary .service p {
+		font-size: 16px;
+	}
+	.banner .container .services-summary .service p span {
+		display: none;
+	}
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	.pricing .container {
+		width: var(--section-width-wider);
+	}
+	.pricing .container .plans .tab-switcher {
+		font-size: 18px;
+	}
+	.pricing .container .plans .categories .category .sub-tabs {
+		font-size: 16px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan {
+		width: 30%;
+		min-width: 30%;
+		margin: 0 1.5rem;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .heading-wrap {
+		padding: 10px 0;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .heading {
+		font-size: 20px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee {
+		padding: 40px 25px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee p {
+		font-size: 14px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee .amount {
+		font-size: 24px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .plan-description {
+		font-size: 14px;
+		padding: 0 10px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .request-button-wrap {
+		padding: 15px 0 35px 0;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .request-button-wrap .request-button {
+		font-size: 16px;
+		padding: 15px 25px;
+	}
 	/*--------------------------------------------=Team start--------------------------------------------*/
+	.team .container .members .member .photo {
+		width: 150px;
+		height: 200px;
+	}
+	.team .container .members .member .photo img {
+		filter: blur(0);
+	}
+	.team .container .members .member .name {
+		font-size: 20px;
+	}
+	.team .container .members .member .title {
+		font-size: 14px;
+	}
+	.team .container .members .member .contact .container, .team .container .members .member:hover .contact .container {
+		top: 73%;
+		width: 90%;
+		opacity: 1;
+	}
+	.team .container .members .member .contact .container .icon {
+		font-size: 12px;
+		width: 12px;
+		padding: 10px;
+		border-radius: 100px;
+	}
 	/*--------------------------------------------=Footer start--------------------------------------------*/
+	.footer .container {
+		width: 75%;
+	}
 }
 
-/*--------------------------------------------=screen width: <=823px--------------------------------------------*/
-@media only screen and (max-width: 823px) {
+/*--------------------------------------------=screen width: <=824px--------------------------------------------*/
+@media only screen and (max-width: 824px) {
 	/*--------------------------------------------=Header start--------------------------------------------*/
 	/*--------------------------------------------=Banner start--------------------------------------------*/
+	.banner .container {
+		height: 525px
+	}
+	.banner .container .banner-header .tagline {
+		margin-bottom: 50px;
+	}
 	/*--------------------------------------------=About start--------------------------------------------*/
+	.about .container {
+		width: var(--section-width-wider);
+	}
 	/*--------------------------------------------=Services start--------------------------------------------*/
+	.services .container .services-description .flip-cards .flip-card .front .content h3 {
+		width: 80%;
+	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	.pricing .container {
+		width: var(--section-width-widest);
+	}
 	/*--------------------------------------------=Team start--------------------------------------------*/
+	.team .container .members .member .photo {
+		width: 40%;
+		height: 100%;
+	}
+	.team .container .members .member .name {
+		font-size: 24px;
+	}
+	.team .container .members .member .contact .container, .team .container .members .member:hover .contact .container {
+		top: 85%;
+		width: 20%;
+	}
 	/*--------------------------------------------=Footer start--------------------------------------------*/
 }
 
@@ -999,13 +1138,75 @@ h2.title+.subtitle {
 
 /*--------------------------------------------=screen width: <=480px--------------------------------------------*/
 @media only screen and (max-width: 480px) {
+	h2.title {
+		font-size: 34px;
+	}
+	h2.title+.subtitle {
+		font-size: 18px;
+	}
+	.heading-wrap>.heading {
+		font-size: 20px;
+	}
+	.heading-wrap>.subheading {
+		font-size: 18px;
+	}
 	/*--------------------------------------------=Header start--------------------------------------------*/
+	.header .container .menu-icon-wrap {
+		right: 5px;
+	}
 	/*--------------------------------------------=Banner start--------------------------------------------*/
+	.banner .container .banner-header .company-name {
+		font-size: 40px;
+	}
+	.banner .container .banner-header .tagline {
+		font-size: 22px;
+	}
+	.banner .container .services-summary .service .icon {
+		font-size: 28px;
+	}
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
+	.pricing .container .plans .categories .category .sub-category .plan {
+		width: 75%;
+		min-width: 75%;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan:nth-child(n+2) {
+		margin-top: 2rem;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .plan-description {
+		padding: 0 15px;
+	}
+	.pricing .container .plans .categories .category .sub-category .plan .request-button-wrap .request-button {
+		padding: 15px 45px;
+	}
 	/*--------------------------------------------=Team start--------------------------------------------*/
+	.team .container .members .member .photo {
+		width: 80%;
+	}
+	.team .container .members .member .name {
+		font-size: 28px;
+	}
+	.team .container .members .member .contact .container, .team .container .members .member:hover .contact .container {
+		top: 86%;
+		width: 40%;
+	}
 	/*--------------------------------------------=Footer start--------------------------------------------*/
+	.footer .container .contact-info-container .contact-info .call-and-mail .email {
+		margin-top: 2rem;
+	}
+	.footer .container .contact-info-container .contact-info .maps .map-1 .address, .footer .container .contact-info-container .contact-info .call-and-mail .link {
+		font-size: 18px;
+	}
+	.footer .container .contact-info-container .contact-info .social-media {
+		width: 100%;
+	}
+	.footer .container .contact-info-container .contact-info .social-media .icon {
+		font-size: 18px;
+		width: 12px;
+		padding: 18px 20px;
+		border-radius: 100px;
+	}
 }
 
 /*--------------------------------------------=screen width: <=376px--------------------------------------------*/
@@ -1017,6 +1218,12 @@ h2.title+.subtitle {
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	/*--------------------------------------------=Footer start--------------------------------------------*/
+	.footer .container .title-wrap .title {
+		font-size: 30px;
+	}
+	.footer .container .title-wrap .subtitle {
+		font-size: 16px;
+	}
 }
 
 /*--------------------------------------------=screen width: <=325px--------------------------------------------*/
@@ -1028,6 +1235,12 @@ h2.title+.subtitle {
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	/*--------------------------------------------=Footer start--------------------------------------------*/
+	.footer .container .title-wrap .title {
+		font-size: 26px;
+	}
+	.footer .container .title-wrap .subtitle {
+		font-size: 14px;
+	}
 }
 
 /*--------------------------------------------=screen width: <=281px--------------------------------------------*/
