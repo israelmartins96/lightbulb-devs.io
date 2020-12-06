@@ -1,160 +1,265 @@
 /*--------------------------------------------=Main Grid--------------------------------------------*/
 .container-main {
+	display: -ms-grid;
 	display: grid;
-	grid-template: repeat(6, auto) / 1fr;
+	-ms-grid-rows: (auto)[6];
+	-ms-grid-columns: 1fr;
+	    grid-template: repeat(6, auto) / 1fr;
 }
 /*--------------------------------------------=Header start--------------------------------------------*/
 .header .container {
+	display: -ms-grid;
 	display: grid;
-	grid-template: auto / auto 70%;
+	-ms-grid-rows: auto;
+	-ms-grid-columns: auto 70%;
+	    grid-template: auto / auto 70%;
 }
 .header .container .logo {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .header .container .navigation {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .header .container .menu-icon-wrap {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .mobile-menu .navigation .links {
+	display: -ms-grid;
 	display: grid;
-	grid-template: repeat(6, 1fr) / 1fr;
+	-ms-grid-rows: (1fr)[6];
+	-ms-grid-columns: 1fr;
+	    grid-template: repeat(6, 1fr) / 1fr;
 }
 /*--------------------------------------------=Banner start--------------------------------------------*/
 .banner .container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 .banner .container .services-summary {
+	display: -ms-grid;
 	display: grid;
-	grid-template: auto / repeat(4, 1fr);
+	-ms-grid-rows: auto;
+	-ms-grid-columns: (1fr)[4];
+	    grid-template: auto / repeat(4, 1fr);
 }
 .banner .container .services-summary .service {
+	display: -ms-grid;
 	display: grid;
-	grid-template: auto auto / auto;
-	grid-template-areas:
+	-ms-grid-columns: auto;
+	    grid-template: auto auto / auto;
+	    grid-template-areas:
 						'icon'
 						'service';
 	grid-row-gap: 1rem;
 }
 .banner .container .services-summary .service .icon {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
 	grid-area: icon;
-	justify-self: center;
+	-ms-grid-column-align: center;
+	    justify-self: center;
 }
 .banner .container .services-summary .service p {
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
 	grid-area: service;
-	justify-self: center;
+	-ms-grid-column-align: center;
+	    justify-self: center;
 }
 /*--------------------------------------------=Services start--------------------------------------------*/
 .services .container .services-description {
+	display: -ms-grid;
 	display: grid;
-	grid-template: 1fr 2fr / 2fr 1fr;
-	grid-template-areas:
+	-ms-grid-columns: 2fr 3rem 1fr;
+	    grid-template: 1fr 2fr / 2fr 1fr;
+	    grid-template-areas:
 						'brief cards'
 						'services cards';
 	grid-row-gap: 2rem;
 	grid-column-gap: 3rem;
 }
 .services .container .services-description .brief {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
 	grid-area: brief;
 }
 .services .container .services-description .all-services {
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
 	grid-area: services;
+	display: -ms-grid;
 	display: grid;
-	grid-template: repeat(3, 1fr) / 1fr 1fr;
+	-ms-grid-rows: 1fr 2rem 1fr 2rem 1fr;
+	-ms-grid-columns: 1fr 2rem 1fr;
+	    grid-template: repeat(3, 1fr) / 1fr 1fr;
 	grid-gap: 2rem;
 }
 .services .container .services-description .all-services .service {
+	display: -ms-grid;
 	display: grid;
-	grid-template: 1fr / auto auto;
-	grid-template-areas:
+	-ms-grid-columns: auto 1rem auto;
+	    grid-template: 1fr / auto auto;
+	    grid-template-areas:
 						'icon details';
 	grid-gap: 1rem;
 }
 .services .container .services-description .all-services .service .icon {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
 	grid-area: icon;
 }
 .services .container .services-description .all-services .service .details {
+	-ms-grid-row: 1;
+	-ms-grid-column: 3;
 	grid-area: details;
 }
 .services .container .services-description .flip-cards {
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 3;
+	-ms-grid-column: 3;
 	grid-area: cards;
+	display: -ms-grid;
 	display: grid;
-	grid-template: 1fr 1fr / 1fr;
+	-ms-grid-rows: 1fr 3rem 1fr;
+	-ms-grid-columns: 1fr;
+	    grid-template: 1fr 1fr / 1fr;
 	grid-gap: 3rem;
 }
 .services .container .services-description .flip-cards .flip-card .front {
+	display: -ms-grid;
 	display: grid;
 }
 .services .container .services-description .flip-cards .flip-card .front .content {
-	align-self: center;
-	justify-self: center;
+	-ms-flex-item-align: center;
+	    -ms-grid-row-align: center;
+	    align-self: center;
+	-ms-grid-column-align: center;
+	    justify-self: center;
 }
 .services .container .services-description .flip-cards .flip-card .back {
+	display: -ms-grid;
 	display: grid;
 }
 .services .container .services-description .flip-cards .flip-card .back .content {
-	align-self: center;
+	-ms-flex-item-align: center;
+	    -ms-grid-row-align: center;
+	    align-self: center;
 }
 /*--------------------------------------------=Pricing start--------------------------------------------*/
 .pricing .container .plans .tab-switcher {
+	display: -ms-grid;
 	display: grid;
-	grid-template: 1fr / repeat(4, 1fr);
+	-ms-grid-rows: 1fr;
+	-ms-grid-columns: (1fr)[4];
+	    grid-template: 1fr / repeat(4, 1fr);
 }
 .pricing .container .plans .categories .category .sub-tabs {
+	display: -ms-grid;
 	display: grid;
 	grid-template: 1fr / repeat(auto-fit, minmax(100px, 1fr));
 }
 .pricing .container .plans .categories .category .sub-tabs .tab {
-	justify-self: center;
+	-ms-grid-column-align: center;
+	    justify-self: center;
 }
 .pricing .container .plans .categories .category .sub-category {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 /*--------------------------------------------=Team start--------------------------------------------*/
 .team .container .members {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 .team .container .members .member .contact {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 .team .container .members .member .contact .container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 /*--------------------------------------------=Footer start--------------------------------------------*/
 .footer .container .contact-info-container .contact-info .social-media {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 .footer .container .contact-info-container .contact-info .call-and-mail {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-around;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .phone, .footer .container .contact-info-container .contact-info .call-and-mail .email {
+	display: -ms-grid;
 	display: grid;
-	grid-template: repeat(3, auto) / 1fr;
-	grid-template-areas:
+	-ms-grid-columns: 1fr;
+	    grid-template: repeat(3, auto) / 1fr;
+	    grid-template-areas:
 						'icon'
 						'tip'
 						'link';
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .phone .text, .footer .container .contact-info-container .contact-info .call-and-mail .email .text {
+	-ms-grid-row: 2;
+	-ms-grid-column: 1;
 	grid-area: tip;
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .phone .link, .footer .container .contact-info-container .contact-info .call-and-mail .email .link {
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
 	grid-area: link;
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .phone .icon, .footer .container .contact-info-container .contact-info .call-and-mail .email .icon {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
 	grid-area: icon;
 }
 
@@ -165,20 +270,37 @@
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
 	.services .container .services-description {
+		display: -ms-grid;
 		display: grid;
-		grid-template: 0.5fr 3fr 1.5fr / 1fr;
-		grid-template-areas:
+		-ms-grid-columns: 1fr;
+		    grid-template: 0.5fr 3fr 1.5fr / 1fr;
+		    grid-template-areas:
 							'brief'
 							'services'
 							'cards';
 		grid-row-gap: 4rem;
 	}
 	.services .container .services-description .flip-cards {
-		grid-template: 1fr / 1fr 1fr;
+		-ms-grid-rows: 1fr;
+		-ms-grid-columns: 1fr 3rem 1fr;
+		    grid-template: 1fr / 1fr 1fr;
 	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	/*--------------------------------------------=Footer start--------------------------------------------*/
+	.services .container .services-description .brief {
+		-ms-grid-row: 1;
+		-ms-grid-column: 1;
+	}
+	.services .container .services-description .all-services {
+		-ms-grid-row: 3;
+		-ms-grid-column: 1;
+	}
+	.services .container .services-description .flip-cards {
+		-ms-grid-row: 5;
+		-ms-grid-row-span: 1;
+		-ms-grid-column: 1;
+	}
 }
 
 /*--------------------------------------------=screen width: <=824px--------------------------------------------*/
@@ -186,19 +308,26 @@
 	/*--------------------------------------------=Header start--------------------------------------------*/
 	/*--------------------------------------------=Banner start--------------------------------------------*/
 	.banner .container .services-summary {
-		grid-template: 1fr 1fr / repeat(2, 1fr);
+		-ms-grid-rows: 1fr 4rem 1fr;
+		-ms-grid-columns: (1fr)[2];
+		    grid-template: 1fr 1fr / repeat(2, 1fr);
 		grid-row-gap: 4rem;
 	}
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
 	.services .container .services-description .all-services {
-		grid-template: repeat(6, 1fr) / 1fr;
+		-ms-grid-rows: 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr;
+		-ms-grid-columns: 1fr;
+		    grid-template: repeat(6, 1fr) / 1fr;
 	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	.team .container .members {
+		display: -ms-grid;
 		display: grid;
-		grid-template: repeat(4, 1fr) / 1fr;
+		-ms-grid-rows: 1fr 6rem 1fr 6rem 1fr 6rem 1fr;
+		-ms-grid-columns: 1fr;
+		    grid-template: repeat(4, 1fr) / 1fr;
 		grid-gap: 6rem;
 	}
 	/*--------------------------------------------=Footer start--------------------------------------------*/
@@ -233,26 +362,46 @@
 	/*--------------------------------------------=About start--------------------------------------------*/
 	/*--------------------------------------------=Services start--------------------------------------------*/
 	.services .container .services-description .flip-cards {
-		grid-template: 1fr 1fr / 1fr;
+		-ms-grid-rows: 1fr 3rem 1fr;
+		-ms-grid-columns: 1fr;
+		    grid-template: 1fr 1fr / 1fr;
 	}
 	/*--------------------------------------------=Pricing start--------------------------------------------*/
 	.pricing .container .plans .tab-switcher {
-		grid-template: 1fr 1fr / 1fr 1fr;
+		-ms-grid-rows: 1fr 1fr;
+		-ms-grid-columns: 1fr 1fr;
+		    grid-template: 1fr 1fr / 1fr 1fr;
 	}
 	.pricing .container .plans .categories .category .sub-tabs .tab {
-		align-self: end;
+		-ms-flex-item-align: end;
+		    -ms-grid-row-align: end;
+		    align-self: end;
 	}
 	.pricing .container .plans .categories .category .sub-category {
-		justify-content: flex-start;
-		align-items: center;
-		flex-direction: column;
+		-webkit-box-pack: start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 	/*--------------------------------------------=Team start--------------------------------------------*/
 	/*--------------------------------------------=Footer start--------------------------------------------*/
 	.footer .container .contact-info-container .contact-info .call-and-mail {
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-pack: start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 }
 

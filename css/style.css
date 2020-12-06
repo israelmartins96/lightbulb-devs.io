@@ -63,6 +63,8 @@ body {
 	margin-top: var(--navbar-top);
 }
 h1, h2, h3, h4, h5, h6, .icon {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 h1, h2, h3, h4, h5, h6, p {
@@ -75,12 +77,16 @@ h1, h2, h3, h4, h5, h6, p {
 .underline {
 	background-color: var(--white);
 	height: 2px;
+	-webkit-transition: width 0.3s ease-in-out;
+	-o-transition: width 0.3s ease-in-out;
 	transition: width 0.3s ease-in-out;
 }
 a, .navigation span, .links span {
 	color: var(--link);
 	text-decoration: none;
 	font-weight: 500;
+	-webkit-transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 	transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 a:hover, .navigation span:hover, .social-media a i:hover {
@@ -118,6 +124,8 @@ button {
 	border: none;
 	border-radius: 5px;
 	outline: none;
+	-webkit-transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 	transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 button:hover {
@@ -135,6 +143,8 @@ button:active {
 }
 form .error {
 	font-size: 11px;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	padding-top: 3px;
 	position: absolute;
@@ -150,7 +160,25 @@ form button {
 input, textarea {
 	background-color: transparent;
 	outline: none;
+	-webkit-transition: none;
+	-o-transition: none;
 	transition: none;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+	color: var(--white);
+	font-weight: 300;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+	color: var(--white);
+	font-weight: 300;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+	color: var(--white);
+	font-weight: 300;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+	color: var(--white);
+	font-weight: 300;
 }
 input::placeholder, textarea::placeholder {
 	color: var(--white);
@@ -185,6 +213,8 @@ textarea {
 	padding: 3px 0 3px 3px;
 	border: 1px solid transparent;
 	border-radius: 5px;
+	-webkit-transition: border-color 0.3s ease-in-out;
+	-o-transition: border-color 0.3s ease-in-out;
 	transition: border-color 0.3s ease-in-out;
 }
 textarea:focus {
@@ -231,6 +261,8 @@ h2.title+.subtitle {
 	color: var(--grey-lighter);
 }
 .tab {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 .tab p {
@@ -298,10 +330,17 @@ h2.title+.subtitle {
 	width: 100%;
 	height: 100%;
 	background-color: var(--white);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	filter: invert(1);
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-filter: invert(1);
+	        filter: invert(1);
 }
 .loader-wrap .loader {
 	width: 40px;
@@ -327,6 +366,8 @@ h2.title+.subtitle {
 	background: transparent !important;
 }
 .header .container .logo {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 .header .container .logo h1 {
@@ -346,8 +387,11 @@ h2.title+.subtitle {
 	width: 100%;
 	height: 100%;
 	border-radius: 50px;
+	background-image: -o-radial-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/icons/lightbulb-icon.svg');
 	background-image: radial-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/icons/lightbulb-icon.svg');
 	opacity: 0;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
 }
 .header .container .logo h1:hover:before {
@@ -386,7 +430,9 @@ h2.title+.subtitle {
 	position: fixed;
 	width: 85%;
 	pointer-events: auto;
-	transform: translateX();
+	-webkit-transform: translateX();
+	    -ms-transform: translateX();
+	        transform: translateX();
 }
 .header .container .menu-icon-wrap .open-menu, .mobile-menu .menu-icon, .mobile-menu .navigation .links .link a, .mobile-menu .navigation .links .link span {
 	font-size: 24px
@@ -408,6 +454,8 @@ h2.title+.subtitle {
 	z-index: 1;
 	padding-top: 50px;
 	height: 100%;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.9))), url('../assets/images/icons/lightbulb-icon.svg');
+	background-image: -o-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/images/icons/lightbulb-icon.svg');
 	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/images/icons/lightbulb-icon.svg');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -417,11 +465,15 @@ h2.title+.subtitle {
 	direction: ltr;
 }
 .mobile-menu .navigation .links .link {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	padding: 1rem 0;
 }
 .mobile-menu .navigation .links a {
 	color: var(--link);
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 .mobile-menu .navigation .links a:hover {
@@ -438,6 +490,8 @@ h2.title+.subtitle {
 }
 .banner .container {
 	height: 575px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.9))), url('../assets/images/icons/lightbulb-icon.svg');
+	background-image: -o-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/images/icons/lightbulb-icon.svg');
 	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/images/icons/lightbulb-icon.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -450,6 +504,8 @@ h2.title+.subtitle {
 	cursor: default;
 }
 .banner .container .banner-header {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: 0 auto 50px auto;
 }
@@ -460,6 +516,8 @@ h2.title+.subtitle {
 	font-size: 48px;
 	font-style: italic;
 	margin-bottom: 100px;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 .banner .container .banner-header .tagline:before {
@@ -524,11 +582,17 @@ h2.title+.subtitle {
 	width: 100%;
 	height: 100%;
 	background-color: var(--white);
-	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
 	color: var(--black);
 	border-radius: 25px;
-	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 0.5s linear;
+	transition: -webkit-transform 0.5s linear;
+	-o-transition: transform 0.5s linear;
 	transition: transform 0.5s linear;
+	transition: transform 0.5s linear, -webkit-transform 0.5s linear;
 }
 .services .container .services-description .flip-cards .flip-card .front .content, .services .container .services-description .flip-cards .flip-card .back .content {
 	width: 90%;
@@ -550,12 +614,19 @@ h2.title+.subtitle {
 	width: 100%;
 	height: 100%;
 	background-color: var(--grey-darker);
-	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
 	color: var(--white);
-	transform: perspective(1000px) rotateY(180deg);
-	transform-style: preserve-3d;
+	-webkit-transform: perspective(1000px) rotateY(180deg);
+	        transform: perspective(1000px) rotateY(180deg);
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
 	border-radius: 25px;
+	-webkit-transition: -webkit-transform 0.5s linear;
+	transition: -webkit-transform 0.5s linear;
+	-o-transition: transform 0.5s linear;
 	transition: transform 0.5s linear;
+	transition: transform 0.5s linear, -webkit-transform 0.5s linear;
 }
 /*--------------------------------------------=Pricing start--------------------------------------------*/
 .pricing {
@@ -583,6 +654,8 @@ h2.title+.subtitle {
 	width: 100%;
 	border-radius: 25px;
 	padding: 10px 0;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-o-transition: background-color 0.3s ease-in-out;
 	transition: background-color 0.3s ease-in-out;
 }
 .pricing .container .plans .tab-switcher .main-tab:hover {
@@ -599,29 +672,41 @@ h2.title+.subtitle {
 }
 .pricing .container .plans .categories .category {
 	padding-bottom: 25px;
-	transform: translateX(75%);
+	-webkit-transform: translateX(75%);
+	    -ms-transform: translateX(75%);
+	        transform: translateX(75%);
 }
 .pricing .container .plans .categories .category, .pricing .container .plans .categories .category .sub-category {
 	opacity: 0;
 	height: 0;
 	padding: 0;
 	pointer-events: none;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out;
+	transition: -webkit-transform 0.3s ease-in-out;
+	-o-transition: transform 0.3s ease-in-out;
 	transition: transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 .pricing .container .plans .categories .category-active {
 	opacity: 1 !important;
 	height: 100% !important;
 	pointer-events: auto !important;
-	transform: translateX(0);
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
 }
 .pricing .container .plans .categories .category .sub-category {
-	transform: translateY(75%);
+	-webkit-transform: translateY(75%);
+	    -ms-transform: translateY(75%);
+	        transform: translateY(75%);
 }
 .pricing .container .plans .categories .category-active .sub-category-active {
 	opacity: 1 !important;
 	height: 100% !important;
 	pointer-events: auto !important;
-	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
 }
 .pricing .container .plans .categories .category .sub-tabs {
 	color: var(--grey-light) !important;
@@ -645,6 +730,8 @@ h2.title+.subtitle {
 .pricing .container .plans .categories .category .sub-category .plan {
 	width: 300px;
 	min-width: 300px;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
 	background-color: var(--grey-darker);
 	color: var(--white);
@@ -654,10 +741,15 @@ h2.title+.subtitle {
 	cursor: default;
 	position: relative;
 	overflow: hidden;
+	-webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+	transition: -webkit-box-shadow 0.3s ease-in-out;
+	-o-transition: box-shadow 0.3s ease-in-out;
 	transition: box-shadow 0.3s ease-in-out;
+	transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 .pricing .container .plans .categories .category .sub-category .plan:hover {
-	box-shadow: 0 0 25px var(--black);
+	-webkit-box-shadow: 0 0 25px var(--black);
+	        box-shadow: 0 0 25px var(--black);
 }
 .pricing .container .plans .categories .category .sub-category .plan .ribbon {
 	position: absolute;
@@ -665,14 +757,20 @@ h2.title+.subtitle {
 	right: 0;
 }
 .pricing .container .plans .categories .category .sub-category .plan .heading-wrap {
+	background: -webkit-gradient(linear, left top, left bottom, from(var(--black)), color-stop(var(--black)), to(var(--grey-darker)));
+	background: -o-linear-gradient(var(--black), var(--black), var(--grey-darker));
 	background: linear-gradient(var(--black), var(--black), var(--grey-darker));
 	padding: 10px 0;
 }
 .pricing .container .plans .categories .category .sub-category .plan .heading-wrap .heading {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: 30px auto 20px auto;
 }
 .pricing .container .plans .categories .category .sub-category .plan .heading-wrap .fee {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: auto;
 	background-color: var(--white);
@@ -692,6 +790,8 @@ h2.title+.subtitle {
 	padding: 0 25px;
 }
 .pricing .container .plans .categories .category .sub-category .plan .deliverables ul {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: auto;
 	text-align: left;
@@ -711,8 +811,12 @@ h2.title+.subtitle {
 .pricing .container .plans .categories .category .sub-category .plan .details {
 	color: var(--grey-light);
 	font-size: 14px;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: auto;
+	-webkit-transition: color 0.2s ease-in-out;
+	-o-transition: color 0.2s ease-in-out;
 	transition: color 0.2s ease-in-out;
 }
 .pricing .container .plans .categories .category .sub-category .plan .details:hover {
@@ -744,11 +848,17 @@ h2.title+.subtitle {
 .team .container .members .member .photo img {
 	width: 100%;
 	height: 100%;
-	filter: blur(3px);
+	-webkit-filter: blur(3px);
+	        filter: blur(3px);
+	-webkit-transition: -webkit-filter 0.2s ease-in-out;
+	transition: -webkit-filter 0.2s ease-in-out;
+	-o-transition: filter 0.2s ease-in-out;
 	transition: filter 0.2s ease-in-out;
+	transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
 }
 .team .container .members .member:hover .photo img {
-	filter: blur(0);
+	-webkit-filter: blur(0);
+	        filter: blur(0);
 }
 .team .container .members .member .name {
 	font-size: 28px;
@@ -770,6 +880,8 @@ h2.title+.subtitle {
 	top: 30%;
 	width: 50%;
 	opacity: 0;
+	-webkit-transition: top 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	-o-transition: top 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	transition: top 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .team .container .members .member:hover .contact .container {
@@ -783,6 +895,8 @@ h2.title+.subtitle {
 	width: 16px;
 	padding: 10px;
 	border-radius: 25px;
+	-webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .team .container .members .member:hover .contact .container .icon {
@@ -811,7 +925,9 @@ h2.title+.subtitle {
 }
 .footer .container .contact-form-container .contact-form .field label {
 	font-size: 11px;
-	transform: translateY(7px);
+	-webkit-transform: translateY(7px);
+	    -ms-transform: translateY(7px);
+	        transform: translateY(7px);
 	opacity: 0;
 }
 .footer .container .contact-form-container .contact-form .field textarea {
@@ -842,6 +958,8 @@ h2.title+.subtitle {
 }
 .footer .container .contact-info-container .contact-info .icon {
 	font-size: var(--icon);
+	-webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .footer .container .contact-info-container .contact-info .call-and-mail {
@@ -866,12 +984,16 @@ h2.title+.subtitle {
 	color: var(--phone);
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .phone {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .email a:hover+.icon {
 	color: var(--envelope);
 }
 .footer .container .contact-info-container .contact-info .call-and-mail .email {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 .footer .container .contact-info-container .contact-info .maps .map-1 {
@@ -915,6 +1037,8 @@ h2.title+.subtitle {
 	bottom: 0;
 }
 .footer .socket .copyright {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: auto;
 	cursor: default;
@@ -925,6 +1049,8 @@ h2.title+.subtitle {
 .footer .socket .copyright .lightbulb-devs {
 	color: var(--grey-lighter);
 	font-weight: 500;
+	-webkit-transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+	-o-transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 	transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .footer .socket:hover .copyright .lightbulb-devs {
@@ -932,6 +1058,8 @@ h2.title+.subtitle {
 	text-shadow: 0 0 10px var(--white);
 }
 .footer .scroll {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	position: fixed;
 	bottom: 2%;
@@ -943,6 +1071,8 @@ h2.title+.subtitle {
 	font-size: 24px;
 	background-color: rgba(100, 100, 100, 0.5);
 	padding: 20px;
+	-webkit-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	-o-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 	transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 .footer .scroll:hover .scroll-top {
@@ -1050,7 +1180,8 @@ h2.title+.subtitle {
 		height: 200px;
 	}
 	.team .container .members .member .photo img {
-		filter: blur(0);
+		-webkit-filter: blur(0);
+		        filter: blur(0);
 	}
 	.team .container .members .member .name {
 		font-size: 20px;
