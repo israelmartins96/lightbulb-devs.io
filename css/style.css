@@ -1126,7 +1126,7 @@ h2.title+.subtitle {
 		-o-background-repeat: no-repeat;
 		-moz-background-repeat: no-repeat;
 		-webkit-background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100%;
 		-o-background-size: cover;
 		-moz-background-size: cover;
 		-webkit-background-size: cover;
