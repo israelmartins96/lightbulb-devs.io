@@ -241,6 +241,9 @@ h2.title {
 h2.title+.subtitle {
 	color: var(--grey-lighter);
 	font-size: 28px;
+	font-weight: 400;
+	margin-left: auto;
+	margin-right: auto;
 }
 h2.title, h2.title+.subtitle {
 	text-align: center;
@@ -251,11 +254,11 @@ h2.title+.subtitle {
 .heading-wrap {
 	margin-bottom: 25px;
 }
-.heading-wrap>.heading {
+.heading-wrap .heading {
 	font-size: 32px;
 	font-weight: var(--bold);
 }
-.heading-wrap>.subheading {
+.heading-wrap .subheading {
 	font-size: 22px;
 	font-weight: var(--not-bold);
 	color: var(--grey-lighter);
@@ -514,6 +517,7 @@ h2.title+.subtitle {
 }
 .banner .container .banner-header .tagline {
 	font-size: 48px;
+	font-weight: 400;
 	font-style: italic;
 	margin-bottom: 100px;
 	width: -webkit-fit-content;
@@ -864,6 +868,7 @@ h2.title+.subtitle {
 	font-size: 28px;
 	font-weight: 500;
 	margin: 10px auto 3px auto;
+	transition: text-shadow 0.3s ease-in-out;
 }
 .team .container .members .member:hover .name {
 	text-shadow: 0 0 15px var(--white);
@@ -1096,10 +1101,10 @@ h2.title+.subtitle {
 	h2.title+.subtitle {
 		font-size: 18px;
 	}
-	.heading-wrap>.heading {
+	.heading-wrap .heading {
 		font-size: 26px;
 	}
-	.heading-wrap>.subheading {
+	.heading-wrap .subheading {
 		font-size: 18px;
 	}
 	/*--------------------------------------------=Header start--------------------------------------------*/
@@ -1197,6 +1202,7 @@ h2.title+.subtitle {
 		width: 12px;
 		padding: 10px;
 		border-radius: 100px;
+		pointer-events: auto;
 	}
 	/*--------------------------------------------=Footer start--------------------------------------------*/
 	.footer .container {
@@ -1248,10 +1254,10 @@ h2.title+.subtitle {
 	h2.title+.subtitle {
 		font-size: 18px;
 	}
-	.heading-wrap>.heading {
+	.heading-wrap .heading {
 		font-size: 20px;
 	}
-	.heading-wrap>.subheading {
+	.heading-wrap .subheading {
 		font-size: 18px;
 	}
 	/*--------------------------------------------=Header start--------------------------------------------*/
